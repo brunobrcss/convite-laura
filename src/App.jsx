@@ -77,12 +77,15 @@ export default function ConviteLaura() {
             </div>
           ) : (
             <video
-              src='/video.mp4'
-              autoPlay
-              controls
-              className='w-full h-full object-cover'
-              onEnded={() => setStep('menu')}
-            />
+            src='/video.mp4'
+            autoPlay
+            playsInline
+            webkit-playsinline="true"
+            controls
+            preload='auto'
+            className='w-full h-full object-cover'
+            onEnded={() => setStep('menu')}
+          />
           )}
         </section>
       )}
