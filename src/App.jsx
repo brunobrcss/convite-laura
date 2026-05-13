@@ -79,8 +79,9 @@ export default function ConviteLaura() {
             <video
             src='/video.mp4'
             autoPlay
+            muted
             playsInline
-            webkit-playsinline="true"
+            loop={false}
             controls
             preload='auto'
             className='w-full h-full object-cover'
