@@ -118,82 +118,97 @@ export default function ConviteLaura() {
     <div className='min-h-screen bg-gradient-to-b from-pink-50 via-sky-50 to-yellow-50'>
 
       {/* HERO */}
-      {step === 'hero' && (
-        <section className='relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden'>
+{step === 'hero' && (
+  <section className='relative min-h-screen flex items-center justify-center text-center overflow-hidden'>
 
-          <div className='absolute inset-0'>
-            <img
-              src='/hero.jpg'
-              alt='Hero Laura'
-              className='w-full h-full object-cover scale-105'
-            />
+    {/* BG */}
+    <div className='absolute inset-0'>
+      <img
+        src='/hero.jpg'
+        alt='Hero Laura'
+        className='w-full h-full object-cover'
+      />
 
-            <div className='absolute inset-0 bg-black/10 backdrop-blur-[1px]' />
-          </div>
+      <div className='absolute inset-0 bg-white/10' />
+    </div>
 
-          {stars.map((s) => (
-            <div
-              key={s}
-              className='absolute text-xl opacity-70 animate-pulse'
-              style={{
-                left: `${10 + s * 8}%`,
-                top: `${8 + (s % 5) * 14}%`,
-              }}
-            >
-              ✨
-            </div>
-          ))}
+    {/* ESTRELAS */}
+    {stars.map((s) => (
+      <div
+        key={s}
+        className='absolute text-xl opacity-70 animate-pulse'
+        style={{
+          left: `${10 + s * 8}%`,
+          top: `${8 + (s % 5) * 14}%`,
+        }}
+      >
+        ✨
+      </div>
+    ))}
 
-          <div className='relative z-10 w-full max-w-md min-h-screen flex flex-col justify-between py-16'>
+    <div className='relative z-10 w-full max-w-md min-h-screen flex flex-col justify-between py-12 px-5'>
 
-            {/* TOPO */}
-            <div className='text-center px-6'>
+      {/* TOPO */}
+      <div>
 
-              <h1
-                className='text-[2.7rem] leading-tight font-black tracking-wide text-[#d94f8a] drop-shadow-[0_2px_12px_rgba(255,255,255,0.65)]'
-                style={{
-                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-                }}
-              >
-                1 aninho da Laura ✨
-              </h1>
+        <h1
+          className='text-[2.8rem] leading-[1.05] font-black tracking-wide text-[#e14986] drop-shadow-[0_2px_10px_rgba(255,255,255,0.95)]'
+          style={{
+            fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+          }}
+        >
+          1 aninho da
+          <br />
+          Laura ✨
+        </h1>
 
-              <p
-                className='mt-4 text-[1.05rem] leading-7 font-semibold text-[#c94d84] drop-shadow-[0_2px_10px_rgba(255,255,255,0.7)]'
-                style={{
-                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-                }}
-              >
-                O Maior Pintor do Mundo preparou uma linda obra de amor 🎨
-              </p>
-            </div>
+        {/* CARD TEXTO */}
+        <div className='mt-8 mx-auto max-w-[320px] rounded-[2rem] border border-pink-200/70 bg-white/70 backdrop-blur-md shadow-2xl px-6 py-5'>
 
-            {/* BOTÃO */}
-            <div className='flex justify-center'>
-              <button
-                onClick={() => setStep('video')}
-                className='rounded-full px-8 py-4 text-lg font-semibold text-white shadow-2xl bg-gradient-to-r from-pink-300 via-yellow-300 to-sky-300 active:scale-95 transition-transform'
-              >
-                Abrir convite
-              </button>
-            </div>
+          <p
+            className='text-[1.15rem] leading-8 font-semibold text-[#9f355f]'
+            style={{
+              fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+            }}
+          >
+            O Maior Pintor do Mundo
+            <br />
+            preparou uma linda
+            <br />
+            obra de amor 🎨
+          </p>
+        </div>
+      </div>
 
-            {/* RODAPÉ */}
-            <div className='text-center px-6'>
+      {/* BOTÃO */}
+      <div className='flex justify-center'>
+        <button
+          onClick={() => setStep('video')}
+          className='rounded-full px-10 py-5 text-2xl font-semibold text-[#c44f7d] shadow-2xl bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200 active:scale-95 transition-transform border border-white/70'
+          style={{
+            fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+          }}
+        >
+          ✨ Abrir convite ✨
+        </button>
+      </div>
 
-              <p
-                className='text-[1rem] font-bold tracking-wide text-[#d14f88] drop-shadow-[0_2px_10px_rgba(255,255,255,0.7)]'
-                style={{
-                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-                }}
-              >
-                20 de junho • 17h • Goiana/PE
-              </p>
+      {/* RODAPÉ */}
+      <div className='text-center'>
 
-            </div>
-          </div>
-        </section>
-      )}
+        <p
+          className='text-[1.2rem] font-bold tracking-wide text-[#d14f88] drop-shadow-[0_2px_10px_rgba(255,255,255,0.9)]'
+          style={{
+            fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+          }}
+        >
+          20 de junho • 17h • Goiana/PE
+        </p>
+
+      </div>
+    </div>
+  </section>
+)}
 
       {/* VIDEO */}
       {step === 'video' && (
