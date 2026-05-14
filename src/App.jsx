@@ -77,7 +77,7 @@ export default function ConviteLaura() {
     if (!name || !phone) {
 
       setWarning(
-        '✨ Para confirmar sua presença, preencha nome e telefone.'
+        '✨ Para confirmar sua presença, favor preencher com seu nome e telefone.'
       );
 
       return;
