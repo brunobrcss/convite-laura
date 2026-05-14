@@ -52,6 +52,7 @@ export default function ConviteLaura() {
 
   const [confirmed, setConfirmed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [warning, setWarning] = useState('');
 
   const stars = useMemo(
     () => Array.from({ length: 10 }, (_, i) => i),
@@ -74,12 +75,17 @@ export default function ConviteLaura() {
   const handleConfirm = async () => {
 
     if (!name || !phone) {
-      alert('Preencha nome e telefone');
+
+      setWarning(
+        '✨ Para confirmar sua presença, preencha nome e telefone.'
+      );
+
       return;
     }
 
     try {
 
+      setWarning('');
       setLoading(true);
 
       await fetch(
@@ -97,7 +103,9 @@ export default function ConviteLaura() {
 
     } catch (err) {
 
-      alert('Erro ao confirmar presença');
+      setWarning(
+        'Não foi possível confirmar agora. Tente novamente ✨'
+      );
 
     } finally {
 
@@ -203,78 +211,76 @@ export default function ConviteLaura() {
       )}
 
       {/* MENU */}
-    {step === 'menu' && (
-      <section className='relative min-h-screen p-5 overflow-hidden'>
-    
-        {/* Background */}
-        <div className='absolute inset-0'>
-          <img
-            src='/hero.jpg'
-            alt='Background Laura'
-            className='w-full h-full object-cover scale-105 opacity-30'
-          />
-    
-          <div className='absolute inset-0 bg-gradient-to-b from-pink-100/80 via-white/75 to-sky-100/80 backdrop-blur-md' />
-        </div>
-    
-        <div className='relative z-10 max-w-md mx-auto'>
-    
-          {/* Header Premium */}
-          <div className='mb-10 mt-6 text-center'>
-    
-            <div className='inline-block px-8 py-5 rounded-[2rem] bg-white/40 shadow-2xl backdrop-blur-xl border border-white/50'>
-    
-              <h2
-                className='text-3xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-400 to-sky-500 drop-shadow-sm'
-                style={{
-                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+      {step === 'menu' && (
+        <section className='relative min-h-screen p-5 overflow-hidden'>
+
+          <div className='absolute inset-0'>
+            <img
+              src='/hero.jpg'
+              alt='Background Laura'
+              className='w-full h-full object-cover scale-105 opacity-30'
+            />
+
+            <div className='absolute inset-0 bg-gradient-to-b from-pink-100/80 via-white/75 to-sky-100/80 backdrop-blur-md' />
+          </div>
+
+          <div className='relative z-10 max-w-md mx-auto'>
+
+            <div className='mb-10 mt-6 text-center'>
+
+              <div className='inline-block px-8 py-5 rounded-[2rem] bg-white/40 shadow-2xl backdrop-blur-xl border border-white/50'>
+
+                <h2
+                  className='text-3xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-400 to-sky-500 drop-shadow-sm'
+                  style={{
+                    fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+                  }}
+                >
+                  Bem-vindo(a) ao convite da Laura ✨
+                </h2>
+
+                <p className='mt-2 text-sm text-pink-500/80 font-medium tracking-wide'>
+                  Uma experiência preparada com muito amor 🎨
+                </p>
+              </div>
+            </div>
+
+            <div className='grid grid-cols-2 gap-4'>
+
+              <Card
+                color='bg-pink-200/90'
+                title='Confirmar presença'
+                icon='🎨'
+                onClick={() => {
+                  setConfirmed(false);
+                  setWarning('');
+                  setOpen('confirm');
                 }}
-              >
-                Bem-vindo(a) ao convite da Laura ✨
-              </h2>
-    
-              <p className='mt-2 text-sm text-pink-500/80 font-medium tracking-wide'>
-                Uma experiência preparada com muito amor 🎨
-              </p>
+              />
+
+              <Card
+                color='bg-yellow-200/90'
+                title='Sugestões de presentes'
+                icon='🎁'
+                onClick={() => setOpen('gift')}
+              />
+
+              <Card
+                color='bg-sky-200/90'
+                title='Como chegar'
+                icon='📍'
+                onClick={() => setOpen('map')}
+              />
+
+              <Card
+                color='bg-purple-200/90'
+                title='Uma mensagem para você'
+                icon='💌'
+                onClick={() => setOpen('msg')}
+              />
             </div>
           </div>
-    
-          {/* Cards */}
-          <div className='grid grid-cols-2 gap-4'>
-    
-            <Card
-              color='bg-pink-200/90'
-              title='Confirmar presença'
-              icon='🎨'
-              onClick={() => {
-                setConfirmed(false);
-                setOpen('confirm');
-              }}
-            />
-    
-            <Card
-              color='bg-yellow-200/90'
-              title='Sugestões de presentes'
-              icon='🎁'
-              onClick={() => setOpen('gift')}
-            />
-    
-            <Card
-              color='bg-sky-200/90'
-              title='Como chegar'
-              icon='📍'
-              onClick={() => setOpen('map')}
-            />
-    
-            <Card
-              color='bg-purple-200/90'
-              title='Uma mensagem para você'
-              icon='💌'
-              onClick={() => setOpen('msg')}
-            />
-          </div>
-        </div>
-      </section>
+        </section>
       )}
 
       {/* CONFIRMAR */}
@@ -305,6 +311,12 @@ export default function ConviteLaura() {
                   className='w-full rounded-2xl border p-4'
                 />
               </div>
+
+              {warning && (
+                <div className='mt-3 rounded-2xl bg-pink-100 border border-pink-200 px-4 py-3 text-sm text-pink-600 text-center shadow-sm'>
+                  {warning}
+                </div>
+              )}
 
               <button
                 onClick={handleConfirm}
