@@ -125,7 +125,7 @@ export default function ConviteLaura() {
             <img
               src='/hero.jpg'
               alt='Hero Laura'
-              className='w-full h-full object-cover scale-105 animate-[pulse_8s_ease-in-out_infinite]'
+              className='w-full h-full object-cover scale-105'
             />
 
             <div className='absolute inset-0 bg-black/10 backdrop-blur-[1px]' />
@@ -144,25 +144,53 @@ export default function ConviteLaura() {
             </div>
           ))}
 
-          <div className='relative z-10 max-w-md'>
-            <h1 className='text-4xl font-bold text-pink-400'>
-              1 aninho da Laura ✨
-            </h1>
+          <div className='relative z-10 w-full max-w-md min-h-screen flex flex-col justify-between py-16'>
 
-            <p className='mt-3 text-lg text-pink-300'>
-              O Maior Pintor do Mundo preparou uma linda obra de amor 🎨
-            </p>
+            {/* TOPO */}
+            <div className='text-center px-6'>
 
-            <button
-              onClick={() => setStep('video')}
-              className='mt-8 rounded-full px-8 py-4 text-lg font-semibold text-white shadow-2xl bg-gradient-to-r from-pink-300 via-yellow-300 to-sky-300 animate-bounce'
-            >
-              Abrir convite
-            </button>
+              <h1
+                className='text-[2.7rem] leading-tight font-black tracking-wide text-[#d94f8a] drop-shadow-[0_2px_12px_rgba(255,255,255,0.65)]'
+                style={{
+                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+                }}
+              >
+                1 aninho da Laura ✨
+              </h1>
 
-            <p className='mt-6 text-sm text-pink-300 font-medium'>
-              20 de junho • 17h • Goiana/PE
-            </p>
+              <p
+                className='mt-4 text-[1.05rem] leading-7 font-semibold text-[#c94d84] drop-shadow-[0_2px_10px_rgba(255,255,255,0.7)]'
+                style={{
+                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+                }}
+              >
+                O Maior Pintor do Mundo preparou uma linda obra de amor 🎨
+              </p>
+            </div>
+
+            {/* BOTÃO */}
+            <div className='flex justify-center'>
+              <button
+                onClick={() => setStep('video')}
+                className='rounded-full px-8 py-4 text-lg font-semibold text-white shadow-2xl bg-gradient-to-r from-pink-300 via-yellow-300 to-sky-300 active:scale-95 transition-transform'
+              >
+                Abrir convite
+              </button>
+            </div>
+
+            {/* RODAPÉ */}
+            <div className='text-center px-6'>
+
+              <p
+                className='text-[1rem] font-bold tracking-wide text-[#d14f88] drop-shadow-[0_2px_10px_rgba(255,255,255,0.7)]'
+                style={{
+                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+                }}
+              >
+                20 de junho • 17h • Goiana/PE
+              </p>
+
+            </div>
           </div>
         </section>
       )}
