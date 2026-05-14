@@ -4,9 +4,12 @@ export default function ConviteLaura() {
   const [step, setStep] = useState('hero');
   const [playVideo, setPlayVideo] = useState(false);
   const [open, setOpen] = useState(null);
+
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+
   const [confirmed, setConfirmed] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const formatPhone = (value) => {
     let nums = value.replace(/\D/g, '').slice(0, 11);
@@ -20,7 +23,10 @@ export default function ConviteLaura() {
     return `(${nums.slice(0, 2)}) ${nums.slice(2, 7)}-${nums.slice(7)}`;
   };
 
-  const stars = useMemo(() => Array.from({ length: 10 }, (_, i) => i), []);
+  const stars = useMemo(
+    () => Array.from({ length: 10 }, (_, i) => i),
+    []
+  );
 
   const Card = ({ icon, title, color, onClick }) => (
     <button
@@ -38,8 +44,11 @@ export default function ConviteLaura() {
   const Modal = ({ title, color, children }) => (
     <div className='fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center px-4'>
       <div className='w-[92%] max-w-md bg-white rounded-[2rem] overflow-hidden shadow-2xl'>
+
         <div className={`${color} p-5 flex justify-between items-center`}>
-          <h3 className='font-bold text-lg text-gray-700'>{title}</h3>
+          <h3 className='font-bold text-lg text-gray-700'>
+            {title}
+          </h3>
 
           <button
             onClick={() => setOpen(null)}
@@ -55,6 +64,41 @@ export default function ConviteLaura() {
       </div>
     </div>
   );
+
+  const handleConfirm = async () => {
+
+    if (!name || !phone) {
+      alert('Preencha nome e telefone');
+      return;
+    }
+
+    try {
+
+      setLoading(true);
+
+      await fetch(
+        'https://script.google.com/macros/s/AKfycbzVQIQJ1z5AQOMumnUrP_9u4hRMDVtofnwPCNYoC9Tao2W7yy6M4d_-VFdytQrTDY0dKA/exec',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            name,
+            phone,
+          }),
+        }
+      );
+
+      setConfirmed(true);
+
+    } catch (err) {
+
+      alert('Erro ao confirmar presença');
+
+    } finally {
+
+      setLoading(false);
+
+    }
+  };
 
   return (
     <div className='min-h-screen bg-gradient-to-b from-pink-50 via-sky-50 to-yellow-50'>
@@ -178,7 +222,10 @@ export default function ConviteLaura() {
                 color='bg-pink-200'
                 title='Confirmar presença'
                 icon='🎨'
-                onClick={() => setOpen('confirm')}
+                onClick={() => {
+                  setConfirmed(false);
+                  setOpen('confirm');
+                }}
               />
 
               <Card
@@ -235,10 +282,11 @@ export default function ConviteLaura() {
               </div>
 
               <button
-                onClick={() => setConfirmed(true)}
+                onClick={handleConfirm}
+                disabled={loading}
                 className='w-full mt-4 rounded-2xl bg-pink-300 text-white p-4 font-semibold'
               >
-                Confirmar
+                {loading ? 'Confirmando...' : 'Confirmar'}
               </button>
             </>
           ) : (
