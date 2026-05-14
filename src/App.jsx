@@ -119,24 +119,20 @@ export default function ConviteLaura() {
 
       {/* HERO */}
 {step === 'hero' && (
-  <section className='relative min-h-screen flex items-center justify-center text-center overflow-hidden'>
+  <section className='relative min-h-screen overflow-hidden flex items-center justify-center'>
 
-    {/* BG */}
-    <div className='absolute inset-0'>
-      <img
-        src='/hero.jpg'
-        alt='Hero Laura'
-        className='w-full h-full object-cover'
-      />
-
-      <div className='absolute inset-0 bg-white/10' />
-    </div>
+    {/* IMG CONVITE */}
+    <img
+      src='/hero.jpg'
+      alt='Convite Laura'
+      className='absolute inset-0 w-full h-full object-cover'
+    />
 
     {/* ESTRELAS */}
     {stars.map((s) => (
       <div
         key={s}
-        className='absolute text-xl opacity-70 animate-pulse'
+        className='absolute text-xl opacity-70 animate-pulse z-10'
         style={{
           left: `${10 + s * 8}%`,
           top: `${8 + (s % 5) * 14}%`,
@@ -146,66 +142,19 @@ export default function ConviteLaura() {
       </div>
     ))}
 
-    <div className='relative z-10 w-full max-w-md min-h-screen flex flex-col justify-between py-12 px-5'>
+    {/* BOTÃO */}
+    <div className='relative z-20 mt-[58vh]'>
 
-      {/* TOPO */}
-      <div>
+      <button
+        onClick={() => setStep('video')}
+        className='rounded-full px-10 py-5 text-2xl font-semibold text-[#c44f7d] shadow-2xl bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200 active:scale-95 transition-transform border border-white/70'
+        style={{
+          fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+        }}
+      >
+        ✨ Abrir convite ✨
+      </button>
 
-        <h1
-          className='text-[2.8rem] leading-[1.05] font-black tracking-wide text-[#e14986] drop-shadow-[0_2px_10px_rgba(255,255,255,0.95)]'
-          style={{
-            fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-          }}
-        >
-          1 aninho da
-          <br />
-          Laura ✨
-        </h1>
-
-        {/* CARD TEXTO */}
-        <div className='mt-8 mx-auto max-w-[320px] rounded-[2rem] border border-pink-200/70 bg-white/70 backdrop-blur-md shadow-2xl px-6 py-5'>
-
-          <p
-            className='text-[1.15rem] leading-8 font-semibold text-[#9f355f]'
-            style={{
-              fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-            }}
-          >
-            O Maior Pintor do Mundo
-            <br />
-            preparou uma linda
-            <br />
-            obra de amor 🎨
-          </p>
-        </div>
-      </div>
-
-      {/* BOTÃO */}
-      <div className='flex justify-center'>
-        <button
-          onClick={() => setStep('video')}
-          className='rounded-full px-10 py-5 text-2xl font-semibold text-[#c44f7d] shadow-2xl bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200 active:scale-95 transition-transform border border-white/70'
-          style={{
-            fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-          }}
-        >
-          ✨ Abrir convite ✨
-        </button>
-      </div>
-
-      {/* RODAPÉ */}
-      <div className='text-center'>
-
-        <p
-          className='text-[1.2rem] font-bold tracking-wide text-[#d14f88] drop-shadow-[0_2px_10px_rgba(255,255,255,0.9)]'
-          style={{
-            fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-          }}
-        >
-          20 de junho • 17h • Goiana/PE
-        </p>
-
-      </div>
     </div>
   </section>
 )}
