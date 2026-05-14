@@ -185,15 +185,6 @@ export default function ConviteLaura() {
     ✨ Assistir ✨
   </button>
 
-  <p
-    className='mt-5 text-white text-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]'
-    style={{
-      fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-    }}
-  >
-    Um convite especial espera por você ✨
-  </p>
-
 </div>
             </>
           )}
