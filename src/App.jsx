@@ -1,34 +1,7 @@
 import { useMemo, useState } from 'react';
 
-export default function ConviteLaura() {
-  const [step, setStep] = useState('hero');
-  const [playVideo, setPlayVideo] = useState(false);
-  const [open, setOpen] = useState(null);
-
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const [confirmed, setConfirmed] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const formatPhone = (value) => {
-    let nums = value.replace(/\D/g, '').slice(0, 11);
-
-    if (nums.length <= 2) return nums;
-
-    if (nums.length <= 7) {
-      return `(${nums.slice(0, 2)}) ${nums.slice(2)}`;
-    }
-
-    return `(${nums.slice(0, 2)}) ${nums.slice(2, 7)}-${nums.slice(7)}`;
-  };
-
-  const stars = useMemo(
-    () => Array.from({ length: 10 }, (_, i) => i),
-    []
-  );
-
-  const Card = ({ icon, title, color, onClick }) => (
+function Card({ icon, title, color, onClick }) {
+  return (
     <button
       onClick={onClick}
       className={`${color} rounded-3xl shadow-lg p-6 min-h-36 flex flex-col items-center justify-center active:scale-95 transition-transform`}
@@ -40,8 +13,10 @@ export default function ConviteLaura() {
       </div>
     </button>
   );
+}
 
-  const Modal = ({ title, color, children }) => (
+function Modal({ title, color, children, onClose }) {
+  return (
     <div className='fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center px-4'>
       <div className='w-[92%] max-w-md bg-white rounded-[2rem] overflow-hidden shadow-2xl'>
 
@@ -51,7 +26,7 @@ export default function ConviteLaura() {
           </h3>
 
           <button
-            onClick={() => setOpen(null)}
+            onClick={onClose}
             className='text-xl'
           >
             ✖
@@ -64,6 +39,37 @@ export default function ConviteLaura() {
       </div>
     </div>
   );
+}
+
+export default function ConviteLaura() {
+
+  const [step, setStep] = useState('hero');
+  const [playVideo, setPlayVideo] = useState(false);
+  const [open, setOpen] = useState(null);
+
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const [confirmed, setConfirmed] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const stars = useMemo(
+    () => Array.from({ length: 10 }, (_, i) => i),
+    []
+  );
+
+  const formatPhone = (value) => {
+
+    let nums = value.replace(/\D/g, '').slice(0, 11);
+
+    if (nums.length <= 2) return nums;
+
+    if (nums.length <= 7) {
+      return `(${nums.slice(0, 2)}) ${nums.slice(2)}`;
+    }
+
+    return `(${nums.slice(0, 2)}) ${nums.slice(2, 7)}-${nums.slice(7)}`;
+  };
 
   const handleConfirm = async () => {
 
@@ -258,6 +264,7 @@ export default function ConviteLaura() {
         <Modal
           title='Confirme sua presença ✨'
           color='bg-pink-200'
+          onClose={() => setOpen(null)}
         >
           {!confirmed ? (
             <>
@@ -309,6 +316,7 @@ export default function ConviteLaura() {
         <Modal
           title='Sugestões de presentes 🎁'
           color='bg-yellow-200'
+          onClose={() => setOpen(null)}
         >
           <ul className='space-y-3 text-gray-700'>
             <li>👕 Roupinhas (2 anos)</li>
@@ -326,6 +334,7 @@ export default function ConviteLaura() {
         <Modal
           title='Como chegar 📍'
           color='bg-sky-200'
+          onClose={() => setOpen(null)}
         >
           <p className='text-gray-700 leading-7'>
             Kolly Kids Celebrações
@@ -342,6 +351,7 @@ export default function ConviteLaura() {
         <Modal
           title='Uma mensagem para você 💌'
           color='bg-purple-200'
+          onClose={() => setOpen(null)}
         >
           <p className='text-gray-700 leading-7'>
             Entre cores, amor e bênçãos,
