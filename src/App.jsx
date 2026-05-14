@@ -173,18 +173,28 @@ export default function ConviteLaura() {
 
               <div className='absolute inset-0 bg-black/30' />
 
-              <div className='relative z-10 text-center px-6'>
-                <button
-                  onClick={() => setPlayVideo(true)}
-                  className='rounded-full bg-pink-300 text-white px-10 py-5 text-2xl shadow-2xl active:scale-95 transition-transform'
-                >
-                  ▶ Assistir
-                </button>
+              <div className='relative z-10 text-center px-6 -mt-24'>
 
-                <p className='mt-5 text-white text-lg'>
-                  Um convite especial espera por você ✨
-                </p>
-              </div>
+  <button
+    onClick={() => setPlayVideo(true)}
+    className='rounded-full px-10 py-5 text-2xl font-semibold text-[#c44f7d] shadow-2xl bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200 active:scale-95 transition-transform border border-white/70'
+    style={{
+      fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+    }}
+  >
+    ✨ Assistir ✨
+  </button>
+
+  <p
+    className='mt-5 text-white text-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]'
+    style={{
+      fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+    }}
+  >
+    Um convite especial espera por você ✨
+  </p>
+
+</div>
             </>
           )}
 
