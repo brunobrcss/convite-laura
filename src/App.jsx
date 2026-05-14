@@ -203,60 +203,78 @@ export default function ConviteLaura() {
       )}
 
       {/* MENU */}
-      {step === 'menu' && (
-        <section className='relative min-h-screen p-5 overflow-hidden'>
-
-          <div className='absolute inset-0'>
-            <img
-              src='/hero.jpg'
-              alt='Background Laura'
-              className='w-full h-full object-cover scale-105 opacity-25'
-            />
-
-            <div className='absolute inset-0 bg-white/70 backdrop-blur-sm' />
-          </div>
-
-          <div className='relative z-10 max-w-md mx-auto'>
-
-            <h2 className='text-center text-2xl font-bold text-pink-500 mt-6 mb-8'>
-              Bem-vindo ao convite da Laura ✨
-            </h2>
-
-            <div className='grid grid-cols-2 gap-4'>
-
-              <Card
-                color='bg-pink-200'
-                title='Confirmar presença'
-                icon='🎨'
-                onClick={() => {
-                  setConfirmed(false);
-                  setOpen('confirm');
+    {step === 'menu' && (
+      <section className='relative min-h-screen p-5 overflow-hidden'>
+    
+        {/* Background */}
+        <div className='absolute inset-0'>
+          <img
+            src='/hero.jpg'
+            alt='Background Laura'
+            className='w-full h-full object-cover scale-105 opacity-30'
+          />
+    
+          <div className='absolute inset-0 bg-gradient-to-b from-pink-100/80 via-white/75 to-sky-100/80 backdrop-blur-md' />
+        </div>
+    
+        <div className='relative z-10 max-w-md mx-auto'>
+    
+          {/* Header Premium */}
+          <div className='mb-10 mt-6 text-center'>
+    
+            <div className='inline-block px-8 py-5 rounded-[2rem] bg-white/40 shadow-2xl backdrop-blur-xl border border-white/50'>
+    
+              <h2
+                className='text-3xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-400 to-sky-500 drop-shadow-sm'
+                style={{
+                  fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
                 }}
-              />
-
-              <Card
-                color='bg-yellow-200'
-                title='Sugestões de presentes'
-                icon='🎁'
-                onClick={() => setOpen('gift')}
-              />
-
-              <Card
-                color='bg-sky-200'
-                title='Como chegar'
-                icon='📍'
-                onClick={() => setOpen('map')}
-              />
-
-              <Card
-                color='bg-purple-200'
-                title='Uma mensagem para você'
-                icon='💌'
-                onClick={() => setOpen('msg')}
-              />
+              >
+                Bem-vindo ao convite da Laura ✨
+              </h2>
+    
+              <p className='mt-2 text-sm text-pink-500/80 font-medium tracking-wide'>
+                Uma experiência preparada com muito amor 🎨
+              </p>
             </div>
           </div>
-        </section>
+    
+          {/* Cards */}
+          <div className='grid grid-cols-2 gap-4'>
+    
+            <Card
+              color='bg-pink-200/90'
+              title='Confirmar presença'
+              icon='🎨'
+              onClick={() => {
+                setConfirmed(false);
+                setOpen('confirm');
+              }}
+            />
+    
+            <Card
+              color='bg-yellow-200/90'
+              title='Sugestões de presentes'
+              icon='🎁'
+              onClick={() => setOpen('gift')}
+            />
+    
+            <Card
+              color='bg-sky-200/90'
+              title='Como chegar'
+              icon='📍'
+              onClick={() => setOpen('map')}
+            />
+    
+            <Card
+              color='bg-purple-200/90'
+              title='Uma mensagem para você'
+              icon='💌'
+              onClick={() => setOpen('msg')}
+            />
+          </div>
+        </div>
+      </section>
       )}
 
       {/* CONFIRMAR */}
