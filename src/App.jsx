@@ -140,15 +140,14 @@ export default function ConviteLaura() {
 
           {playVideo && (
             <video
-              src='/video.mp4'
-              autoPlay
-              playsInline
-              muted
-              controls
-              preload='auto'
-              className='absolute inset-0 w-full h-full object-cover z-20'
-              onEnded={() => setStep('menu')}
-            />
+            src='/video.mp4'
+            playsInline
+            controls
+            preload='auto'
+            autoPlay
+            className='absolute inset-0 w-full h-full object-cover z-20'
+            onEnded={() => setStep('menu')}
+          />
           )}
         </section>
       )}
