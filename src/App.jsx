@@ -173,7 +173,7 @@ export default function ConviteLaura() {
 
               <div className='absolute inset-0 bg-black/30' />
 
-              <div className='relative z-10 text-center px-6 -mt-34'>
+              <div className='absolute z-10 text-center px-6 top-[32%] left-1/2 -translate-x-1/2'>
 
   <button
     onClick={() => setPlayVideo(true)}
