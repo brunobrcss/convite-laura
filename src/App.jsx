@@ -177,7 +177,7 @@ export default function ConviteLaura() {
 
   <button
   onClick={() => setPlayVideo(true)}
-  className='relative overflow-hidden rounded-full px-12 py-5 text-2xl font-semibold text-[#d14f88] shadow-[0_10px_40px_rgba(255,182,193,0.45)] bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200 active:scale-95 transition-all duration-300 border border-white/80'
+  className='relative overflow-hidden rounded-[2.5rem] px-14 py-5 text-2xl font-semibold text-[#d14f88] shadow-[0_10px_40px_rgba(255,182,193,0.45)] bg-gradient-to-r from-pink-200 via-yellow-100 to-sky-200 active:scale-95 transition-all duration-300 border border-white/80'
   style={{
     fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
   }}
