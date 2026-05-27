@@ -115,9 +115,9 @@ export default function ConviteLaura() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-pink-100 via-white to-sky-100 flex items-center justify-center p-4'>
+    <div className='min-h-screen md:bg-gradient-to-br md:from-pink-100 md:via-white md:to-sky-100 flex items-center justify-center md:p-4'>
 
-    <div className='w-full max-w-[430px] min-h-screen md:min-h-[900px] bg-white md:rounded-[40px] md:shadow-[0_0_60px_rgba(0,0,0,0.18)] overflow-hidden relative'>
+  <div className='w-full min-h-screen md:max-w-[430px] md:min-h-[900px] bg-white overflow-hidden relative md:rounded-[40px] md:shadow-[0_0_60px_rgba(0,0,0,0.18)]'>
 
       {/* HERO */}
 {step === 'hero' && (
