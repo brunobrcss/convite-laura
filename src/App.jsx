@@ -117,8 +117,7 @@ export default function ConviteLaura() {
   return (
     <div className='min-h-screen md:bg-gradient-to-br md:from-pink-100 md:via-white md:to-sky-100 flex items-center justify-center md:p-4'>
 
-  <div className='w-full min-h-screen md:max-w-[430px] md:min-h-[900px] bg-white overflow-hidden relative md:rounded-[40px] md:shadow-[0_0_60px_rgba(0,0,0,0.18)]'>
-
+<div className='w-full min-h-screen md:w-[min(70vw,560px)] md:h-[92vh] bg-white overflow-hidden relative md:rounded-[40px] md:shadow-[0_0_60px_rgba(0,0,0,0.18)]'>
       {/* HERO */}
 {step === 'hero' && (
   <section className='relative min-h-screen overflow-hidden flex items-center justify-center'>
@@ -127,7 +126,7 @@ export default function ConviteLaura() {
     <img
       src='/hero.jpg'
       alt='Convite Laura'
-      className='absolute inset-0 w-full h-full object-cover'
+      className='absolute inset-0 w-full h-full object-contain md:object-contain object-cover'
     />
 
     {/* ESTRELAS */}
@@ -170,7 +169,7 @@ export default function ConviteLaura() {
               <img
                 src='/frame-video.jpg'
                 alt='Frame vídeo'
-                className='absolute inset-0 w-full h-full object-cover'
+                className='absolute inset-0 w-full h-full object-contain md:object-contain object-cover'
               />
 
               <div className='absolute inset-0 bg-black/30' />
