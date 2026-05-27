@@ -280,8 +280,35 @@ export default function ConviteLaura() {
                 onClick={() => setOpen('msg')}
               />
             </div>
-          </div>
-        </section>
+
+<div className='mt-10 text-center'>
+
+  <div className='inline-block px-6 py-4 rounded-[2rem] bg-white/40 shadow-xl backdrop-blur-xl border border-white/50'>
+
+    <div
+      className='text-sm font-medium text-pink-500 tracking-wide'
+      style={{
+        fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+      }}
+    >
+      ✨ Dia • Horário • Cidade
+    </div>
+
+    <div
+      className='mt-2 text-lg font-bold text-[#d14f88]'
+      style={{
+        fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
+      }}
+    >
+      20 de Junho • 17h • Goiana/PE
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+</section>
       )}
 
       {/* CONFIRMAR */}
