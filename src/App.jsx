@@ -291,15 +291,6 @@ export default function ConviteLaura() {
         fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
       }}
     >
-      ✨ Dia • Horário • Cidade
-    </div>
-
-    <div
-      className='mt-2 text-lg font-bold text-[#d14f88]'
-      style={{
-        fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
-      }}
-    >
       20 de Junho • 17h • Goiana/PE
     </div>
 
