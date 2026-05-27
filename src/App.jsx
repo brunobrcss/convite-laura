@@ -237,7 +237,7 @@ export default function ConviteLaura() {
                     fontFamily: '"Trebuchet MS", "Poppins", sans-serif'
                   }}
                 >
-                  Bem-vindo(a) ao convite da Laura ✨🎨
+                  Bem-vindo(a) ao convite da Laura ✨
                 </h2>
 
               </div>
